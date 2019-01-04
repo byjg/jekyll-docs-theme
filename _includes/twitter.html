@@ -1,8 +1,19 @@
-<script>
-    window.twttr = (function (d,s,id) {
-        var t, js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id; js.async=1;
-        js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-    }(document, "script", "twitter-wjs"));
-</script>
+{% if site.social.twitter.enabled %}
+<li>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="{{ site.github.url }}"
+       data-count="horizontal"
+       data-via="{{ site.social.twitter.via }}"
+       data-text="{{ site.name }}"
+       data-hashtags="{{ site.social.twitter.hash }}">Tweet</a>
+</li>
+{% endif %}
+{% if site.twitter.account %}
+<li>
+    <a href="https://twitter.com/{{ site.twitter.account }}"
+       class="twitter-follow-button"
+       data-show-count="true">Follow @{{ site.twitter.account }}</a>
+</li>
+{% endif %}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
